@@ -53,7 +53,8 @@ public class TestCreator
         for (Dependency d : dependencies) {
             model.addDependency(d);
         }
-        model.setProperty("camel-spring-boot-version", version);
+        model.getProperties().remove("camel-spring-boot-version");
+        model.addProperty("camel-spring-boot-version", version);
     }
 
     public void writeModel(Model model, String pomFileName) throws Exception {
