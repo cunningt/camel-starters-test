@@ -5,11 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.fuse.camel.spring-boot</groupId>
-  <artifactId>camel-starters-test</artifactId>
-  <packaging>pom</packaging>
+  <artifactId>camel-starters-test-generator</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>camel-starters-test</name>
+  <name>camel-starters-test-generator</name>
   <url>git@github.com:cunningt/camel-starters-test.git</url>
 
   <properties>
@@ -23,14 +22,41 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model</artifactId>
+      <version>${maven-model.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-core</artifactId>
+      <version>${maven-model.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model-builder</artifactId>
+      <version>${maven-model.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.shrinkwrap.resolver</groupId>
+      <artifactId>shrinkwrap-resolver-depchain</artifactId>
+      <version>3.1.4</version>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.shrinkwrap.resolver</groupId>
+      <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
+      <version>3.1.4</version>
+    </dependency>
+
   </dependencies>
-
-  <modules>
-    <module>generator</module>
-    <module>allpossible</module> 
-  </modules>
-
-
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -86,7 +112,7 @@
             <arguments>
                 <argument>3.14.2.redhat-00024</argument>
                 <argument>pom.template</argument>
-                <argument>pom.target</argument>
+                <argument>../allpossible/pom.xml</argument>
             </arguments>
         </configuration>
       </plugin>
